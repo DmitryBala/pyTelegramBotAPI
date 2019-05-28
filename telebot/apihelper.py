@@ -357,7 +357,7 @@ def send_chat_action(token, chat_id, action):
 
 
 def send_video(token, chat_id, data, duration=None, caption=None, reply_to_message_id=None, reply_markup=None,
-               parse_mode=None, supports_streaming=None, disable_notification=None, timeout=None):
+               parse_mode=None, supports_streaming=None, disable_notification=None, timeout=None, thumbnail=None):
     method_url = r'sendVideo'
     payload = {'chat_id': chat_id}
     files = None
@@ -381,6 +381,8 @@ def send_video(token, chat_id, data, duration=None, caption=None, reply_to_messa
         payload['disable_notification'] = disable_notification
     if timeout:
         payload['connect-timeout'] = timeout
+    if thumbnail:
+        payload['thumb'] = thumbnail
     return _make_request(token, method_url, params=payload, files=files, method='post')
 
 

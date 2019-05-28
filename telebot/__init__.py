@@ -702,7 +702,7 @@ class TeleBot:
                                 disable_notification, timeout))
 
     def send_video(self, chat_id, data, duration=None, caption=None, reply_to_message_id=None, reply_markup=None,
-                   parse_mode=None, supports_streaming=None, disable_notification=None, timeout=None):
+                   parse_mode=None, supports_streaming=None, disable_notification=None, timeout=None, thumbnail=None):
         """
         Use this method to send video files, Telegram clients support mp4 videos.
         :param chat_id: Integer : Unique identifier for the message recipient — User or GroupChat id
@@ -717,7 +717,7 @@ class TeleBot:
         """
         return types.Message.de_json(
             apihelper.send_video(self.token, chat_id, data, duration, caption, reply_to_message_id, reply_markup,
-                                 parse_mode, supports_streaming, disable_notification, timeout))
+                                 parse_mode, supports_streaming, disable_notification, timeout, thumbnail))
 
     def send_video_note(self, chat_id, data, duration=None, length=None, reply_to_message_id=None, reply_markup=None,
                         disable_notification=None, timeout=None):
